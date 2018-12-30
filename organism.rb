@@ -18,7 +18,7 @@ class Organism
   end
 
   def mate(partner:)
-    half = CHROMOSOME_SIZE/2
+    half = CHROMOSOME_SIZE / 2
     my_genes = get_genes(organism: self, number: half)
     partner_genes = get_genes(organism: partner, number: half)
     child_genes = my_genes + partner_genes
