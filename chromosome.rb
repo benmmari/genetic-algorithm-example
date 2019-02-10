@@ -25,9 +25,9 @@ attr_accessor :genes
         @genes[position] = mutated_gene
     end
 
-    def display
-        @genes.each do |gene|
-            gene.display
+    def gene_values
+        @genes.map do |gene|
+            gene.value
         end
     end
 end

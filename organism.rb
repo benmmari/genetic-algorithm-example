@@ -2,29 +2,25 @@ require './chromosome'
 
 class Organism
 
-  CHROMOSOME_SIZE = 6
-  MATING_LIMIT = 3
-
-  attr_accessor :mated_number, :fitness
+  attr_accessor :fitness
   attr_reader :chromosome
 
-  def initialize(randomize: true, genes: nil)
-    @mated_number = 0
+  def initialize(randomize: true, genes: nil, size:)
+    raise 'Chromozome size must be an even number' unless size > 0 && size % 2 == 0
+    @size = size
     if randomize
-        @chromosome = Chromosome.new(size: CHROMOSOME_SIZE, randomize: true)
+        @chromosome = Chromosome.new(size: size, randomize: true)
     else
-        @chromosome = Chromosome.new(size: CHROMOSOME_SIZE, genes: genes)
+        @chromosome = Chromosome.new(size: size, genes: genes)
     end
   end
 
   def mate(partner:)
-    half = CHROMOSOME_SIZE / 2
+    half = @size / 2
     my_genes = get_genes(organism: self, number: half)
     partner_genes = get_genes(organism: partner, number: half)
     child_genes = my_genes + partner_genes
-    @mated_number += 1
-    partner.mated_number += 1
-    Organism.new(randomize: false, genes: child_genes)
+    Organism.new(randomize: false, genes: child_genes, size: @size)
   end
 
   def calculate_fitness(goal:)
