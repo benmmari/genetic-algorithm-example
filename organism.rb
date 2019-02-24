@@ -2,11 +2,13 @@ require './chromosome'
 
 class Organism
 
-  attr_accessor :fitness
-  attr_reader :chromosomes
+  attr_reader :chromosomes, :fitness, :parent_1, :parent_2
 
-  def initialize(chromosome_blueprint: [], chromosome_capacity:, genes_per_chromosome: 1)
+  def initialize(chromosome_blueprint: [], chromosome_capacity:, genes_per_chromosome: 1, parent_1: nil, parent_2: nil)
     raise 'Chromosome capacity must be an even number' unless chromosome_capacity > 0 && chromosome_capacity % 2 == 0
+    raise 'Chromosome blueprint length must be equal to chromosome capacity' if chromosome_blueprint.any?  && chromosome_blueprint.size != chromosome_capacity
+    @parent_1 = parent_1
+    @parent_2 = parent_2
     @chromosome_capacity = chromosome_capacity
     @genes_per_chromosome = genes_per_chromosome
     if chromosome_blueprint.empty?
@@ -29,7 +31,7 @@ class Organism
     my_chromosomes = get_chromosomes(true)
     partner_chromosomes = partner.get_chromosomes(false)
     child_chromosomes = my_chromosomes + partner_chromosomes
-    Organism.new(chromosome_blueprint: child_chromosomes, chromosome_capacity: @chromosome_capacity, genes_per_chromosome: @genes_per_chromosome)
+    Organism.new(chromosome_blueprint: child_chromosomes, chromosome_capacity: @chromosome_capacity, genes_per_chromosome: @genes_per_chromosome, parent_1: self, parent_2: partner)
   end
 
   def calculate_fitness(goal:)

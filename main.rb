@@ -4,6 +4,7 @@ POPULATION_CAPACITY = ARGV[0].to_i
 INITIAL_POPULATION = ARGV[1].to_i
 SOLUTION = ARGV[2]
 CHROMOZOME_SIZE = SOLUTION.size
+GENERATIONS_TO_DISPLAY = ARGV[3].to_i
 
 def run_simulation
     create_initial_population
@@ -21,8 +22,41 @@ def run_simulation
         sexy_time
 	    display_population(suffix: ": after mating")
         generation += 1
-	      puts ""
     end
+    display_generations(@population.first)
+end
+
+def build_lineage(organism)
+    @lineage = []
+    @lineage << organism
+    for ind in 0..(((2**(GENERATIONS_TO_DISPLAY-1))-1)-1)
+        current = @lineage[ind]
+        @lineage << current.parent_1
+        @lineage << current.parent_2
+    end
+end
+
+def display_generations(organism)
+    build_lineage(organism)
+    last = @lineage.size
+    generation = GENERATIONS_TO_DISPLAY
+    ind = last-1
+    puts "", "Generations that lead to fittest organism"
+    while ind >= 0
+        current = @lineage[ind]
+        print "G#{Math.log2(ind+2).to_i-1} - " if po2?(ind+2)
+        print " |#{current.display_gene_values}|"
+        puts "" if po2?(ind+1)
+        ind-=1
+    end
+end
+
+def po2?(n)
+    n.to_s(2).count('1') == 1
+end
+
+def generation(n)
+
 end
 
 def create_initial_population
