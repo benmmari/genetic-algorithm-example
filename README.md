@@ -13,7 +13,7 @@ In each iteration the following takes place:
    After the parents have contributed their chromosomes to the child, there will be a random mutation that takes place within the child organism which will replace one of the randomly selected genes with a gene from the possible set of genes.
   
 ## The Basics
-An Organism is made up of a set of Chromosomes and a Chromosome is comprised of a number of Genes. In this program each Organism needs to have an even set of Chromosomes and each Chromosome is made up of one Gene. Currently the Gene population consists of the characters in the English Alphabet (i.e A,B,C...X,Y,Z). Thus the provided solution can be any even combination of letters. 
+An Organism is made up of a set of Chromosomes and a Chromosome is comprised of a number of Genes. In this program each Organism needs to have an even set of Chromosomes and each Chromosome is made up of one Gene. Currently the Gene population consists of the 26 characters in the English Alphabet (i.e A,B,C...X,Y,Z). Thus the provided solution can be any even combination of letters. 
 
 I.e "WE", "EVOLVE", "OVER", "MILLENIA"
 
@@ -33,10 +33,10 @@ ruby main.rb 100 8 AB 4
 NB: The chromosome size of the organism needs to be an even number, so the length of the solution must be an even number
 
 ## Definitions  
-P - population capacity - int - the maximum capacity of the population  
-I - initial population size - int - how many organisms in the first generation  
-S - the solution - string - the solution that will yield the maximum fitness  
-N - no. of generations to print - int -  when the simulations comes to an end it will print the solution and it's family tree for N generations. Where N <= Generations taken to produce the solution
+P - population capacity - int - the maximum capacity of the population.  
+I - initial population size - int - how many organisms in the first generation.  
+S - the solution - string - an ordered combination of genes.  
+N - no. of generations to print - int -  when the simulations comes to an end it will print the solution and it's family tree for N generations. Where N <= Generations taken to produce the solution.
 
 
 ## Example Output
