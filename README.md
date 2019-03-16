@@ -1,4 +1,4 @@
-# genetic-algorithm-example
+# Genetic Algorithm Example
 
 ## Purpose
 The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. By starting off with a set of random 'solutions' i.e organisms, the program will converge on the ideal solution after iterating through multiple generations. 
