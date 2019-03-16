@@ -1,10 +1,10 @@
 # Genetic Algorithm Example
 
 ## Purpose
-The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. The program will start off with a list of randomly generated 'solutions' i.e organisms, then it will continuously iterate through progressive generations, only stopping when the fittest organism has reached the global maximum. In order to determine the fitness of an organism, the program compares the organisms ordered gene output to the provided solution. The organisms themselves do not know what the solution is, they are just guided by selective pressure over many generations. 
+The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. The program will start off with a list of randomly generated 'solutions' i.e organisms, then it will continuously iterate through progressive generations, applying the same algorithm in each generation, only stopping when the fittest organism has reached the global maximum. In order to determine the fitness of an organism, the program compares the organisms ordered gene output to the provided solution. The organisms themselves do not know what the solution is, they are just guided by selective pressure over many generations. 
 
 ## The Basics
-An Organism is made up of a group of Chromosomes and a Chromosome is comprised of a number of Genes. In the current version of the program each Organism is made up of an even number of Chromosomes and each Chromosome is made up of one Gene. A Gene can be value from a set of characters that consists of the 26 letters in the English Alphabet as well as the underscore character (i.e [ A,B,C...X,Y,Z,\_ ]). The provided solution must be any even combination of these characters. 
+An Organism is made up of a group of Chromosomes and a Chromosome is comprised of a number of Genes. In the current version of the program each Organism is made up of an even number of Chromosomes and each Chromosome is made up of one Gene. A Gene can be value from a set of characters that consists of the 26 letters in the English Alphabet as well as the underscore character (i.e [ A,B,C...X,Y,Z,\_ ]). The provided solution can be any even combination of these characters. 
 
 I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
 
@@ -13,13 +13,13 @@ I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
 In each iteration of the algorithm the following takes place (after the initial population has been created):
 1. Sorting of the population by organism fitness
 2. Culling the lower half the population
-3. Reproduction of the remaining organisms
+3. Reproduction between the remaining organisms with a top down round-robin approach, meaning the fitter organisms mate more.
 
    During reproduction, each parent contributes half of it's chromosomes to the child.
 
    After the parents have contributed their chromosomes to the child, there will be a random mutation that takes place within the child organism, which will replace one of the randomly selected genes with a gene from the possible set of genes.
   
-## Definitions  
+## Input Definitions  
 population capacity - integer - the maximum capacity of the population.  
 initial population size - integer - how many organisms in the first generation.  
 the solution - string - an ordered combination of genes.  
@@ -181,3 +181,5 @@ G75 -  {THIS_TEXT_ISL_RANDOM} {THIS_TEXT_IS__RVNDOM} {THIS_TEIT_IS__RVNDIM} {THI
 G76 -  {THIS_TEMT_ISL_RANDOM} {THIS_TEXT_IS__RVNDOM}
 G77 -  {THIS_TEXT_IS__RANDOM}
 ```
+
+From the above output you can see that it took the population 77 generations to reach the solution: THIS_IS_RANDOM.
