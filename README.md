@@ -39,7 +39,8 @@ S - the solution - string - an ordered combination of genes.
 N - no. of generations to print - int -  when the simulations comes to an end it will print the solution and it's family tree for N generations. Where N <= Generations taken to produce the solution.
 
 
-## Example Output (with a few lines ommited intentionally)
+## Example Output 
+* A few lines of the output have been intentionally ommited
 
 ```
 genetic-algorithm-example git:(master)✗ ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
