@@ -13,7 +13,7 @@ In each iteration the following takes place:
    After the parents have contributed their chromosomes to the child, there will be a random mutation that takes place within the child organism which will replace one of the randomly selected genes with a gene from the possible set of genes.
   
 ## The Basics
-An Organism is made up of a set of Chromosomes and a Chromosome is comprised of a number of Genes. In this program each Organism needs to have an even set of Chromosomes and each Chromosome is made up of one Gene. Currently the Gene population consists of the 26 characters in the English Alphabet and an underscore (i.e A,B,C...X,Y,Z,_). Thus the provided solution can be any even combination of these characters. 
+An Organism is made up of a set of Chromosomes and a Chromosome is comprised of a number of Genes. In this program each Organism needs to have an even set of Chromosomes and each Chromosome is made up of one Gene. Currently the Gene population consists of the 26 letters in the English Alphabet as well as the underscore (i.e A,B,C...X,Y,Z,_). Thus the provided solution can be any even combination of these characters. 
 
 I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
 
