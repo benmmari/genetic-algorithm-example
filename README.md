@@ -1,21 +1,32 @@
 # Genetic Algorithm Example
 
 ## Purpose
-The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. By starting off with a set of random 'solutions' i.e organisms, the program will converge on the ideal solution after iterating through multiple generations. 
+The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. The program will start off with a list of random 'solutions' i.e organisms, then it will continuously iterate through progressive generations, only stopping when the fittest organism has reached the global maximum. The fitness calculation is based on the similarity of the organism and the provided solution. Note that the organisms do not know what the solution is, they are just guided by selective pressure over many generations. 
+
+## The Basics
+An Organism is made up of a group of Chromosomes and a Chromosome is comprised of a number of Genes. In this program each Organism needs to have an even number of Chromosomes and each Chromosome is made up of one Gene. In this current version of the program, a Gene can be value from a set of values that consists of the 26 letters in the English Alphabet as well as the underscore (i.e [A,B,C...X,Y,Z,\_]). The provided solution must be an even combination of these characters. 
+
+I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
+
+## The Algorithm
 
 In each iteration the following takes place:
 1. Sorting of the population by organism fitness (defined by the fitness calculation)
 2. Killing off of half of the population, based on fitness ranking
 3. Reproduction of the remaining organisms
 
-   During reproduction each parent contributes half of it's chromosomes to the child.
+   During reproduction, each parent contributes half of it's chromosomes to the child.
 
-   After the parents have contributed their chromosomes to the child, there will be a random mutation that takes place within the child organism which will replace one of the randomly selected genes with a gene from the possible set of genes.
+   After the parents have contributed their chromosomes to the child, there will be a random mutation that takes place within the child organism, which will replace one of the randomly selected genes with a gene from the possible set of genes.
   
-## The Basics
-An Organism is made up of a set of Chromosomes and a Chromosome is comprised of a number of Genes. In this program each Organism needs to have an even set of Chromosomes and each Chromosome is made up of one Gene. Currently the Gene population consists of the 26 letters in the English Alphabet as well as the underscore (i.e A,B,C...X,Y,Z,_). Thus the provided solution can be any even combination of these characters. 
 
-I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
+
+
+## Definitions  
+population capacity - integer - the maximum capacity of the population.  
+initial population size - integer - how many organisms in the first generation.  
+the solution - string - an ordered combination of genes.  
+no. of generations to print - integer -  when the simulation comes to an end it will print out the family tree of the solution for N generations.
 
 
 ## How To Run:
@@ -30,17 +41,10 @@ i.e
 ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
 ```
 
-NB: The chromosome size of the organism needs to be an even number, so the length of the solution must be an even number
-
-## Definitions  
-P - population capacity - int - the maximum capacity of the population.  
-I - initial population size - int - how many organisms in the first generation.  
-S - the solution - string - an ordered combination of genes.  
-N - no. of generations to print - int -  when the simulations comes to an end it will print the solution and it's family tree for N generations. Where N <= Generations taken to produce the solution.
-
+NB: The chromosome size of the organism needs to be an even number, so there must be an even number of characters in the solution.
 
 ## Example Output 
-* A few lines of the output have been intentionally ommited
+* Some of the output below has been intentionally ommited (G7 to G69), for the sake of brevity
 
 ```
 genetic-algorithm-example git:(master)✗ ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
