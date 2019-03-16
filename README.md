@@ -4,7 +4,7 @@
 The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. The program will start off with a list of randomly generated 'solutions' i.e organisms, then it will continuously iterate through progressive generations, only stopping when the fittest organism has reached the global maximum. In order to determine the fitness of an organism, the program compares the organisms ordered gene output to the provided solution. The organisms themselves do not know what the solution is, they are just guided by selective pressure over many generations. 
 
 ## The Basics
-An Organism is made up of a group of Chromosomes and a Chromosome is comprised of a number of Genes. In the current version of the program each Organism is made up of an even number of Chromosomes and each Chromosome is made up of one Gene. A Gene can be value from a set of characters that consists of the 26 letters in the English Alphabet as well as the underscore character (i.e [A,B,C...X,Y,Z,\_]). The provided solution must be any even combination of these characters. 
+An Organism is made up of a group of Chromosomes and a Chromosome is comprised of a number of Genes. In the current version of the program each Organism is made up of an even number of Chromosomes and each Chromosome is made up of one Gene. A Gene can be value from a set of characters that consists of the 26 letters in the English Alphabet as well as the underscore character (i.e [ A,B,C...X,Y,Z,\_ ]). The provided solution must be any even combination of these characters. 
 
 I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
 
