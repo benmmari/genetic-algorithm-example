@@ -15,7 +15,7 @@ In each iteration the following takes place:
 ## The Basics
 An Organism is made up of a set of Chromosomes and a Chromosome is comprised of a number of Genes. In this program each Organism needs to have an even set of Chromosomes and each Chromosome is made up of one Gene. Currently the Gene population consists of the 26 characters in the English Alphabet and an underscore (i.e A,B,C...X,Y,Z,_). Thus the provided solution can be any even combination of these characters. 
 
-I.e "_WE_", "EVOLVE", "OVER", "MILLENIA"
+I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
 
 
 ## How To Run:
