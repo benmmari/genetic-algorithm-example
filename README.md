@@ -42,7 +42,7 @@ N - no. of generations to print - int -  when the simulations comes to an end it
 ## Example Output (with a few lines ommited intentionally)
 
 ```
-ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
+genetic-algorithm-example git:(master)✗ ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
 
 Population: Size 9 : initial population
 TVIV_YRMOQDVAYGAAOEL - 4
