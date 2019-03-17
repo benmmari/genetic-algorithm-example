@@ -2,7 +2,8 @@ require './chromosome'
 
 class Organism
 
-  attr_reader :chromosomes, :fitness, :parent_1, :parent_2
+  attr_reader :chromosomes, :parent_1, :parent_2
+  attr_accessor :fitness
 
   def initialize(chromosome_blueprint: [], chromosome_capacity:, genes_per_chromosome: 1, parent_1: nil, parent_2: nil)
     validations!(chromosome_capacity, chromosome_blueprint)
@@ -36,23 +37,6 @@ class Organism
       parent_1: self,
       parent_2: partner
     )
-  end
-
-  def calculate_fitness(goal:)
-    result = goal.length
-    genes = []
-    chromosomes.each do |chromosome|
-      genes << chromosome.gene_values
-    end
-    all_genes = genes.flatten.join("")
-
-    ind = 0
-    goal.each_char do |char|
-      result -= 1 if all_genes[ind] == char
-      ind += 1
-    end
-
-    @fitness = result
   end
 
   def validations!(chromosome_capacity, chromosome_blueprint)

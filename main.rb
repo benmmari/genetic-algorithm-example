@@ -11,9 +11,9 @@ def run_simulation
     sort_by_fitness
     display_population(display_organisms: true, suffix: ": initial population")
     @generation = 0
-    while @population.first.fitness > 0
+    while @population.first.fitness < CHROMOZOME_SIZE
         @generation += 1
-        puts "", "GENERATION #: #{@generation}"
+        puts "", "------------------------------------", "GENERATION #: #{@generation}"
         sort_by_fitness
         display_population
         puts "", "FITTEST ORGANISM: #{@population.first.display_gene_values}  #{@population.first.fitness}"
@@ -63,10 +63,28 @@ def create_initial_population
     @population = []
     INITIAL_POPULATION.times {
        organism = Organism.new(chromosome_capacity: CHROMOZOME_SIZE)
-       organism.calculate_fitness(goal: SOLUTION)
+       calculate_fitness(goal: SOLUTION, organism: organism)
        @population << organism
     }
 end
+
+def calculate_fitness(goal:, organism:)
+    result = 0
+    genes = []
+    organism.chromosomes.each do |chromosome|
+      genes << chromosome.gene_values
+    end
+    all_genes = genes.flatten.join("")
+
+    ind = 0
+    goal.each_char do |char|
+      result += 1 if all_genes[ind] == char
+      ind += 1
+    end
+
+    organism.fitness = result
+end
+
 
 def display_population(display_organisms: false, suffix: "")
     puts "Population: Size #{@population.size} #{suffix}"
@@ -78,7 +96,7 @@ def display_population(display_organisms: false, suffix: "")
 end
 
 def sort_by_fitness
-    @population.sort! { |x, y| x.fitness <=> y.fitness }
+    @population.sort! { |x, y| y.fitness <=> x.fitness }
 end
 
 def survival_of_the_fittest
@@ -97,7 +115,7 @@ def sexy_time
             if partner != current
                 break if @population.size == POPULATION_CAPACITY
                 new_organism =  @population[current].mate(partner: @population[partner])
-                new_organism.calculate_fitness(goal: SOLUTION)
+                calculate_fitness(goal: SOLUTION, organism: new_organism)
                 @population << new_organism
             end
         end
