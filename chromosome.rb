@@ -2,7 +2,7 @@ require './gene'
 
 class Chromosome
 
-attr_accessor :genes
+attr_reader :genes
 
     def initialize(gene_capacity:, genes: nil)
       raise 'Number of genes is greater than permitted size of #{gene_capacity}' if genes && genes.any? && genes.length > gene_capacity
