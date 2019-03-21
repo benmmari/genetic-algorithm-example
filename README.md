@@ -35,7 +35,7 @@ ruby environment.rb {population capacity} {initial population size} {the solutio
 i.e 
 
 ```
-ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
+ruby environment.rb 100 9 THIS_TEXT_IS__RANDOM 4
 ```
 
 NB: The chromosome size of the organism needs to be an even number, so there must be an even number of characters in the solution.
