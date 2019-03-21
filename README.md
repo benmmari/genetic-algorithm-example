@@ -29,7 +29,7 @@ no. of generations to print - integer -  when the simulation comes to an end it 
 ## How To Run:
 
 ```
-ruby main.rb {population capacity} {initial population size} {the solution} {no. of generations to print}
+ruby environment.rb {population capacity} {initial population size} {the solution} {no. of generations to print}
 ```
 
 i.e 
@@ -44,7 +44,7 @@ NB: The chromosome size of the organism needs to be an even number, so there mus
 * Some of the output below has been intentionally ommited (G7 to G69), for the sake of brevity
 
 ```
-genetic-algorithm-example git:(master)✗ ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
+genetic-algorithm-example git:(master)✗ ruby environment.rb 100 9 THIS_TEXT_IS__RANDOM 4
 
 Population: Size 9 : initial population
 TVIV_YRMOQDVAYGAAOEL - 4
