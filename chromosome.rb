@@ -23,7 +23,7 @@ attr_reader :genes
         genes[position] = mutated_gene
     end
 
-    def generate_blueprint
+    def gene_blueprint
         genes.map do |gene|
             gene.dup
         end

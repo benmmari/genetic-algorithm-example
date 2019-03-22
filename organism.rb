@@ -19,8 +19,8 @@ class Organism
       @chromosomes = new_chromosomes
     else
       @chromosomes = []
-      chromosome_blueprint.each do |blueprint|
-        @chromosomes << Chromosome.new(gene_capacity: genes_per_chromosome, genes: blueprint.generate_blueprint)
+      chromosome_blueprint.each do |chromosome|
+        @chromosomes << Chromosome.new(gene_capacity: genes_per_chromosome, genes: chromosome.gene_blueprint)
       end
       mutation_candidate_position = rand(chromosome_capacity)
       @chromosomes[mutation_candidate_position].mutate_gene
