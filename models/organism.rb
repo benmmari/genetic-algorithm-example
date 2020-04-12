@@ -1,4 +1,4 @@
-require './chromosome'
+require_relative 'chromosome'
 
 class Organism
 
