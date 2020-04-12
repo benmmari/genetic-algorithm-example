@@ -1,4 +1,3 @@
-require "./spec/support/factory_bot"
 require "./models/gene"
 
 describe Gene do
@@ -8,7 +7,7 @@ describe Gene do
 
     let(:gene) { Gene.new(value: value) }
 
-    context 'when value is set' do
+    context 'when value is passed in' do
       let(:value) { 'v' }
 
       it 'returns the correct value' do
@@ -24,7 +23,7 @@ describe Gene do
       end
     end
 
-    context 'when value is not set' do
+    context 'when value is not passed in' do
       let(:value) { nil }
 
       it 'ensures the internally set value is from the gene pool' do
@@ -33,8 +32,8 @@ describe Gene do
     end
   end
 
-  context '#mutate' do
-    subject { gene.mutate }
+  context '#mutate!' do
+    subject { gene.mutate! }
 
     let!(:gene) { Gene.new(value: nil) }
 

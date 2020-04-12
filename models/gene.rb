@@ -14,7 +14,7 @@ class Gene
     raise 'value not in the gene pool' unless POSSIBILITIES.include? @value.downcase
   end
 
-  def mutate
+  def mutate!
     @value = POSSIBILITIES[rand(@size)].upcase
     self
   end

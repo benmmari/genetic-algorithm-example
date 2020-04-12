@@ -6,7 +6,7 @@ class Organism
   attr_accessor :fitness
 
   def initialize(chromosome_blueprint: [], chromosome_capacity:, genes_per_chromosome: 1, parent_1: nil, parent_2: nil)
-    validations!(chromosome_capacity, chromosome_blueprint)
+    validate!(chromosome_capacity, chromosome_blueprint)
     @parent_1 = parent_1
     @parent_2 = parent_2
     @chromosome_capacity = chromosome_capacity
@@ -39,7 +39,7 @@ class Organism
     )
   end
 
-  def validations!(chromosome_capacity, chromosome_blueprint)
+  def validate!(chromosome_capacity, chromosome_blueprint)
     if chromosome_capacity < 2 || chromosome_capacity % 2 != 0
       raise 'Chromosome capacity must be an even number'
     end
