@@ -17,5 +17,3 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        pwd
-        bundle exec rspec
