@@ -1,10 +1,10 @@
 # Genetic Algorithm Example
 
 ## Purpose
-The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. The program will start off with a list of randomly generated 'solutions' i.e organisms, then it will continuously iterate through progressive generations, applying the same algorithm in each generation, only stopping when the fittest organism has reached the global maximum. In order to determine the fitness of an organism, the program compares the organisms ordered gene output to the provided solution. The organisms themselves do not know what the solution is, they are just guided by selective pressure over many generations. 
+The purpose of this program is to illustrate the problem solving capabilities of genetic algorithms. The program will start off with a list of randomly generated 'solutions' i.e organisms, then it will continuously iterate through progressive generations, applying the same algorithm in each generation, only stopping when the fittest organism has reached the global maximum. In order to determine the fitness of an organism, the program compares the organisms ordered gene output to the provided solution. The organisms themselves do not know what the solution is, they are just guided by selective pressure over many generations.
 
 ## The Basics
-An Organism is made up of a group of Chromosomes and a Chromosome is comprised of a number of Genes. In the current version of the program each Organism is made up of an even number of Chromosomes and each Chromosome is made up of one Gene. A Gene can be value from a set of characters that consists of the 26 letters in the English Alphabet as well as the underscore character (i.e [ A, B, C...X, Y, Z, \_ ]). The provided solution can be any even combination of these characters. 
+An Organism is made up of a group of Chromosomes and a Chromosome is comprised of a number of Genes. In the current version of the program each Organism is made up of an even number of Chromosomes and each Chromosome is made up of one Gene. A Gene can be value from a set of characters that consists of the 26 letters in the English Alphabet as well as the underscore character (i.e [ A, B, C...X, Y, Z, \_ ]). The provided solution can be any even combination of these characters.
 
 I.e "\_WE\_", "EVOLVE", "OVER", "MILLENIA"
 
@@ -18,11 +18,11 @@ In each iteration of the algorithm the following takes place (after the initial 
    During reproduction, each parent contributes half of it's chromosomes to the child.
 
    After the parents have contributed their chromosomes to the child, there will be a random mutation that takes place within the child organism, which will replace one of the randomly selected genes with a gene from the possible set of genes.
-  
-## Input Definitions  
-population capacity - integer - the maximum capacity of the population.  
-initial population size - integer - how many organisms in the first generation.  
-the solution - string - an ordered combination of genes.  
+
+## Input Definitions
+population capacity - integer - the maximum capacity of the population.
+initial population size - integer - how many organisms in the first generation.
+the solution - string - an ordered combination of genes.
 no. of generations to print - integer -  when the simulation comes to an end it will print out the family tree of the solution for N generations.
 
 
@@ -32,15 +32,15 @@ no. of generations to print - integer -  when the simulation comes to an end it 
 ruby environment.rb {population capacity} {initial population size} {the solution} {no. of generations to print}
 ```
 
-i.e 
+i.e
 
 ```
-ruby environment.rb 100 9 THIS_TEXT_IS__RANDOM 4
+ruby main.rb 100 9 THIS_TEXT_IS__RANDOM 4
 ```
 
 NB: The chromosome size of the organism needs to be an even number, so there must be an even number of characters in the solution.
 
-## Example Output 
+## Example Output
 * Some of the output below has been intentionally ommited (G7 to G69), for the sake of brevity
 
 ```
