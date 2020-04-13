@@ -2,12 +2,10 @@ require "./models/organism"
 
 describe Organism do
 
-  let(:organism) { Organism.new(chromosome_blueprint: chromosome_blueprint, chromosome_capacity:chromosome_capacity, genes_per_chromosome: 1, parent_1: parent_1, parent_2: parent_2) }
+  let(:organism) { Organism.new(chromosome_blueprint: chromosome_blueprint, chromosome_capacity: chromosome_capacity) }
   let(:chromosome_blueprint) { [] }
   let(:chromosome_capacity) { 2 }
   let(:genes_per_chromosome) { 1 }
-  let(:parent_1) { nil }
-  let(:parent_2) { nil }
 
   context 'init' do
     subject { organism }
@@ -50,18 +48,17 @@ describe Organism do
     end
   end
 
-  xcontext '#mutate_gene' do
-    subject { chromosome.mutate_gene }
-    let(:gene_position) { 4 }
+  context '#mate' do
+    subject { organism.mate(partner: partner) }
 
-    it 'mutates one of the gene values - at random' do
-      initial_gene = chromosome.genes[gene_position]
+    let(:partner) { Organism.new(chromosome_blueprint: partner_chromosome_blueprint, chromosome_capacity: chromosome_capacity) }
+    let(:partner_chromosome_blueprint) { [Chromosome.new(gene_capacity: 1), Chromosome.new(gene_capacity: 1)] }
 
-      expect_any_instance_of(described_class).to receive(:rand) .with(gene_capacity) { gene_position }
-      expect(chromosome.genes[gene_position]).to receive(:mutate!) { 'mutation' }
-
-
-      expect(initial_gene).to_not eq(subject)
+    it 'returns a child organism' do
+      expect(subject).to be_a(Organism)
+      expect(subject.parent_1).to eq(organism)
+      expect(subject.parent_2).to eq(partner)
+      expect(subject.chromosomes.size).to eq(chromosome_capacity)
     end
   end
 
