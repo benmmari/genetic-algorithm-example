@@ -31,6 +31,8 @@ class Environment
     display_generations(@population.first)
   end
 
+  private
+
   def build_lineage(organism)
     @lineage = []
     @lineage << organism
