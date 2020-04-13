@@ -35,8 +35,8 @@ describe Chromosome do
     end
   end
 
-  context '#mutate_gene' do
-    subject { chromosome.mutate_gene }
+  context '#mutate_gene!' do
+    subject { chromosome.mutate_gene! }
     let(:gene_position) { 4 }
 
     it 'mutates one of the gene values - at random' do

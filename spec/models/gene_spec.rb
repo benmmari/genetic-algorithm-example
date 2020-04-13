@@ -35,9 +35,10 @@ describe Gene do
   context '#mutate!' do
     subject { gene.mutate! }
 
-    let!(:gene) { Gene.new(value: nil) }
+    let!(:gene) { Gene.new(value: 'E') }
 
     it 'changes the value of the gene' do
+      stub_const("Gene::POSSIBILITIES", "a b c d _ f g h i j k l m n o p q r s t u v w x y z _")
       initial_value = gene.value
       expect(initial_value).to_not eq(subject.value)
     end

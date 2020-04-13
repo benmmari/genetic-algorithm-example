@@ -17,7 +17,7 @@ class Chromosome
       end
   end
 
-  def mutate_gene
+  def mutate_gene!
     position = rand(@gene_capacity)
     genes[position].mutate!
   end
