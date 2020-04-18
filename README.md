@@ -20,10 +20,10 @@ In each iteration of the algorithm the following takes place (after the initial 
    After the parents have contributed their chromosomes to the child, there will be a random mutation that takes place within the child organism, which will replace one of the randomly selected genes with a gene from the possible set of genes.
 
 ## Input Definitions
-population capacity - integer - the maximum capacity of the population.
-initial population size - integer - how many organisms in the first generation.
-the solution - string - an ordered combination of genes.
-no. of generations to print - integer -  when the simulation comes to an end it will print out the family tree of the solution for N generations.
+population capacity - integer - the maximum capacity of the population.  
+initial population size - integer - how many organisms in the first generation.  
+the solution - string - an ordered combination of genes.  
+no. of generations to print - integer -  when the simulation comes to an end it will print out the family tree of the solution for N generations. 
 
 
 ## How To Run:
