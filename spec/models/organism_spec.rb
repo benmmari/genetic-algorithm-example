@@ -83,8 +83,8 @@ describe Organism do
     end
   end
 
-  context '#display_gene_values' do
-    subject { organism.display_gene_values }
+  context '#gene_values' do
+    subject { organism.gene_values }
     let(:chromosome_blueprint) { [Chromosome.new(gene_capacity: 1), Chromosome.new(gene_capacity: 1)] }
 
     it 'returns values of the genes' do
